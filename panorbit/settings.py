@@ -83,16 +83,20 @@ WSGI_APPLICATION = 'panorbit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = { 
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'world',
-        'USER': 'root',
-        'PASSWORD': 'xxxx',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }   
+        'ENGINE': 'mssql',
+        'NAME': 'your_database_name',  # Replace with your database name
+        'USER': 'sa',
+        'PASSWORD': 'StrongPass123',
+        'HOST': 'db',  # This refers to the service name in docker-compose.yml
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # Ensure you have this driver installed in your Docker image.
+        },
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
